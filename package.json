@@ -1,0 +1,45 @@
+{
+  "name": "objection-visibility",
+  "version": "0.1.0",
+  "description": "Objectionjs plugin to whitelist/blacklist model properties when serializing to json",
+  "main": "index.js",
+  "author": "oscar <druiventakoscar@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard",
+    "test": "mocha --slow 10 --timeout 15000 --reporter spec test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oscaroox/objection-visibility.git"
+  },
+  "bugs": {
+    "url": "https://github.com/oscaroox/objection-visibility/issues"
+  },
+  "standard": {
+    "ignore": [
+      "test.js"
+    ]
+  },
+  "keywords": [
+    "objection",
+    "objectionjs",
+    "objection-visibilty",
+    "orm",
+    "plugin",
+    "whitelist",
+    "blacklist"
+  ],
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "knex": "^0.13.0",
+    "mocha": "^3.4.2",
+    "objection": "^0.8.2",
+    "sqlite3": "^3.1.8",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "lodash.omit": "~4.5.0",
+    "lodash.pick": "~4.4.0"
+  }
+}
