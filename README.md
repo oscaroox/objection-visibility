@@ -25,7 +25,7 @@ The listed fields are gone after being serialized to json
 
 ```js
 const Model = require('objection').Model
-const visiblityPlugin = require('objection-visibility')
+const visibilityPlugin = require('objection-visibility')
 
 class User extends visibilityPlugin(Model) {
   static get hidden() {
