@@ -1,6 +1,6 @@
 {
   "name": "objection-visibility",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Objectionjs plugin to whitelist/blacklist model properties ",
   "main": "index.js",
   "author": "oscar <druiventakoscar@gmail.com>",
