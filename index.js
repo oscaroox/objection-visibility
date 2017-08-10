@@ -3,7 +3,7 @@ const omit = require('lodash.omit')
 const pick = require('lodash.pick')
 
 module.exports = (Model) => {
-  return class VisibilityPlugin extends Model {
+  return class extends Model {
     $formatJson (json) {
       let superJson = super.$formatJson(json)
 
