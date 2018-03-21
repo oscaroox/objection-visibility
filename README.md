@@ -42,7 +42,7 @@ The listed fields will be the only properties available after being serialized t
 
 ```js
 const Model = require('objection').Model
-const visiblityPlugin = require('objection-visibility')
+const visibilityPlugin = require('objection-visibility')
 
 class User extends visibilityPlugin(Model) {
   static get visible() {
