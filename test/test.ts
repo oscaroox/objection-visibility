@@ -2,7 +2,7 @@
 // tslint:disable:max-classes-per-file
 import { expect } from "chai";
 import Knex from "knex";
-import { Model } from "objection";
+import { compose, mixin, Model } from "objection";
 import visibilityPlugin from "../src";
 
 describe("objection-timestamp test", () => {
@@ -22,6 +22,7 @@ describe("objection-timestamp test", () => {
     return Promise.all([
       knex.schema.createTable("user", (table) => {
         table.increments("id").primary();
+        table.string("username");
         table.string("firstName");
         table.string("lastName");
         table.string("hashedPassword");
@@ -32,7 +33,14 @@ describe("objection-timestamp test", () => {
         table.string("slug");
         table.string("description");
       }),
-    ]);
+    ]).then(() => {
+      return knex.table("user").insert({
+        username: "johndoe",
+        firstName: "John",
+        lastName: "Doe",
+        hashedPassword: "testing123",
+      });
+    });
   });
 
   after(() => {
@@ -46,12 +54,12 @@ describe("objection-timestamp test", () => {
     return knex.destroy();
   });
 
-  beforeEach(() => {
-    return Promise.all([
-      knex("user").delete(),
-      knex("post").delete(),
-    ]);
-  });
+  // beforeEach(() => {
+  //   return Promise.all([
+  //     knex("user").delete(),
+  //     knex("post").delete(),
+  //   ]);
+  // });
 
   it("should not show blacklisted properties when serialized to json", () => {
     class User extends visibilityPlugin(Model) {
@@ -136,5 +144,48 @@ describe("objection-timestamp test", () => {
         expect(serialized).to.have.property("id");
         expect(serialized).to.have.property("title");
       });
+  });
+
+  it("should work with the mixin helper", () => {
+
+    const plugins = mixin(Model, [
+      visibilityPlugin,
+    ]);
+
+    class User extends plugins {
+      public static tableName = "user";
+      public static hidden = ["hashedPassword"];
+    }
+
+    return User
+      .query(knex)
+      .where("username", "johndoe")
+      .first()
+      .then((john) => {
+        const data = john && john.toJSON() || undefined;
+
+        expect(john).to.not.be.empty;
+        expect(data).to.not.have.property("hashedPassword");
+      });
+  });
+
+  it("should work with the compose helper", () => {
+    const plugins = compose(visibilityPlugin)(Model);
+
+    class User extends plugins {
+      public static tableName = "user";
+      public static hidden = ["hashedPassword"];
+    }
+
+    return User
+      .query(knex)
+      .where("username", "johndoe")
+      .first()
+      .then((john) => {
+        const data = john && john.toJSON() || undefined;
+        expect(john).to.not.be.empty;
+        expect(data).to.not.have.property("hashedPassword");
+      });
+
   });
 });
