@@ -1,12 +1,11 @@
 'use strict'
-
-const visibilityPlugin = require('./')
-const expect = require('chai').expect
-const Model = require('objection').Model
-const Knex = require('knex')
+import visibilityPlugin from '../src';
+import { expect } from 'chai';
+import { Model } from 'objection';
+import Knex from 'knex';
 
 describe('objection-timestamp test', () => {
-  let knex
+  let knex: Knex;
 
   before(() => {
     knex = Knex({
@@ -55,6 +54,9 @@ describe('objection-timestamp test', () => {
 
   it('should not show blacklisted properties when serialized to json', () => {
     class User extends visibilityPlugin(Model) {
+      firstName!: string;
+      lastName!: string;
+      hashedPassword!: string;
       static get tableName () {
         return 'user'
       }
@@ -74,6 +76,9 @@ describe('objection-timestamp test', () => {
 
   it('should only show whitelisted properties when serialized to json', () => {
     class User extends visibilityPlugin(Model) {
+      firstName!: string;
+      lastName!: string;
+      hashedPassword!: string;
       static get tableName () {
         return 'user'
       }
@@ -94,11 +99,13 @@ describe('objection-timestamp test', () => {
       })
   })
 
-  // just to be sure :)
   it('should work when applying to a base class model', () => {
     class Base extends visibilityPlugin(Model) {}
 
     class User extends Base {
+      firstName!: string;
+      lastName!: string;
+      hashedPassword!: string;
       static get tableName () {
         return 'user'
       }
@@ -108,6 +115,7 @@ describe('objection-timestamp test', () => {
     }
 
     class Post extends Base {
+      title!: string;
       static get tableName () {
         return 'post'
       }

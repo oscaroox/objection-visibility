@@ -10,7 +10,7 @@
     "lint": "standard",
     "prebuild": "rm -r dist",
     "build": "tsc",
-    "test": "mocha --slow 10 --timeout 15000 --reporter spec test.js"
+    "test": "mocha -r ts-node/register --slow 10 --timeout 15000 --reporter spec test/test.ts"
   },
   "repository": {
     "type": "git",
@@ -34,12 +34,16 @@
     "blacklist"
   ],
   "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/knex": "^0.14.14",
     "@types/lodash.omit": "^4.5.3",
     "@types/lodash.pick": "^4.4.3",
+    "@types/mocha": "^5.2.3",
     "@types/node": "^10.5.0",
     "chai": "^4.1.1",
     "knex": "^0.13.0",
     "mocha": "^3.5.0",
+    "objection": "^1.1.10",
     "sqlite3": "4.0.1",
     "standard": "^10.0.3",
     "ts-node": "^7.0.0",
