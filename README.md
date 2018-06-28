@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/oscaroox/objection-visibility.svg?style=svg)](https://circleci.com/gh/oscaroox/objection-visibility)
+
 # objection-visibility
 
 
