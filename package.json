@@ -2,11 +2,14 @@
   "name": "objection-visibility",
   "version": "0.2.0",
   "description": "Objectionjs plugin to whitelist/blacklist model properties ",
-  "main": "index.js",
-  "author": "oscar <druiventakoscar@gmail.com>",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "oscar",
   "license": "MIT",
   "scripts": {
     "lint": "standard",
+    "prebuild": "rm -r dist",
+    "build": "tsc",
     "test": "mocha --slow 10 --timeout 15000 --reporter spec test.js"
   },
   "repository": {
@@ -31,10 +34,12 @@
     "blacklist"
   ],
   "devDependencies": {
+    "@types/lodash.omit": "^4.5.3",
+    "@types/lodash.pick": "^4.4.3",
+    "@types/node": "^10.5.0",
     "chai": "^4.1.1",
     "knex": "^0.13.0",
     "mocha": "^3.5.0",
-    "objection": "^0.8.6",
     "sqlite3": "4.0.1",
     "standard": "^10.0.3",
     "ts-node": "^7.0.0",
@@ -43,5 +48,8 @@
   "dependencies": {
     "lodash.omit": "~4.5.0",
     "lodash.pick": "~4.4.0"
+  },
+  "peerDependencies": {
+    "objection": ">= 0.8.6 < 2"
   }
 }
