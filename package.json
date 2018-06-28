@@ -7,9 +7,10 @@
   "author": "oscar",
   "license": "MIT",
   "scripts": {
-    "lint": "standard",
-    "prebuild": "rm -r dist",
+    "lint": "tslint --project tsconfig.json",
+    "prebuild": "rm -r dist && npm run lint",
     "build": "tsc",
+    "pretest": "npm run lint",
     "test": "mocha -r ts-node/register --slow 10 --timeout 15000 --reporter spec test/test.ts"
   },
   "repository": {
@@ -47,6 +48,7 @@
     "sqlite3": "4.0.1",
     "standard": "^10.0.3",
     "ts-node": "^7.0.0",
+    "tslint": "^5.10.0",
     "typescript": "^2.9.2"
   },
   "dependencies": {
