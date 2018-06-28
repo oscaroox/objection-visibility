@@ -1,3 +1,4 @@
 *.db
 test
 .circleci
+!dist/

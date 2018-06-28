@@ -7,7 +7,7 @@
   "author": "oscar",
   "license": "MIT",
   "scripts": {
-    "prepublish": "npm build",
+    "prepublish": "npm run build",
     "lint": "tslint --project tsconfig.json",
     "prebuild": "rm -r dist && npm run lint",
     "build": "tsc",
