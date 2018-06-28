@@ -1,6 +1,5 @@
 # objection-visibility
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 This plugin adds the ability to whitelist or blacklists model properties.
 

@@ -46,7 +46,6 @@
     "mocha": "^3.5.0",
     "objection": "^1.1.10",
     "sqlite3": "4.0.1",
-    "standard": "^10.0.3",
     "ts-node": "^7.0.0",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2"
