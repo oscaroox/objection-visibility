@@ -11,21 +11,21 @@ interface IConstructor extends Function {
 export default <M extends typeof Model>(ModelClass: typeof Model): M => {
   return class extends ModelClass {
     public $formatJson(json: {}) {
-      let superJson = super.$formatJson(json);
+      let formattedJson = super.$formatJson(json);
 
       const conf = this.constructor as IConstructor;
 
-      if (!conf.hidden && !conf.visible) { return superJson; }
+      if (!conf.hidden && !conf.visible) { return formattedJson; }
 
       if (conf.visible) {
-        superJson = pick(superJson, conf.visible);
+        formattedJson = pick(formattedJson, conf.visible);
       }
 
       if (conf.hidden) {
-        superJson = omit(superJson, conf.hidden);
+        formattedJson = omit(formattedJson, conf.hidden);
       }
 
-      return superJson;
+      return formattedJson;
     }
   } as M;
 };
