@@ -12,7 +12,7 @@
     "prebuild": "rimraf dist && npm run lint",
     "build": "tsc",
     "pretest": "npm run lint",
-    "test": "mocha -r ts-node/register test/test.ts"
+    "test": "mocha -r ts-node/register test/*.spec.ts"
   },
   "repository": {
     "type": "git",

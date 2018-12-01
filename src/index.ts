@@ -1,7 +1,7 @@
 "use strict";
-import omit from "lodash.omit";
-import pick from "lodash.pick";
-import { Model, Plugin } from "objection";
+
+import { Model } from "objection";
+import { omit, pick } from "./utils";
 
 interface IConstructor extends Function {
   hidden: string[];
