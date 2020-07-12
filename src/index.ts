@@ -8,7 +8,7 @@ interface IConstructor extends Function {
   visible: string[];
 }
 
-export default <M extends typeof Model>(ModelClass: typeof Model): M => {
+export default <M extends typeof Model>(ModelClass: M): M => {
   return class extends ModelClass {
     public $formatJson(json: {}) {
       let formattedJson = super.$formatJson(json);
