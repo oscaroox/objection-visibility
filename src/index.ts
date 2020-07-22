@@ -8,8 +8,20 @@ interface IConstructor extends Function {
   visible: string[];
 }
 
-export default <M extends typeof Model>(ModelClass: M): M => {
+/**
+ * Fix for ts error: "A mixin class must have a constructor with a single rest parameter of type 'any[]'."
+ * adding the constructor with rest parameter doesnt get rid of the error.
+ */
+type Constructor<A = object> = new (...input: any[]) => A
+
+export default <M extends Constructor<Model>>(ModelClass:  M): M => {
   return class extends ModelClass {
+
+    // does not work
+    // constructor(...args: any[]) {
+    //   super();
+    // }
+
     public $formatJson(json: {}) {
       let formattedJson = super.$formatJson(json);
 
