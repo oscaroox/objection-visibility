@@ -69,10 +69,10 @@ abbrev@1:
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
 
-ajv@^6.12.0, ajv@^6.5.5:
-  version "6.12.3"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.3.tgz#18c5af38a111ddeb4f2697bd78d68abc1cabd706"
-  integrity sha512-4K0cK3L1hsqk9xIb2z9vs/XU+PGJZ9PNpJRDS9YLzmNdX6jmVPfamLvTJr0aDAusnHyCHO6MjzlkAsgtqp9teA==
+ajv@^6.12.6, ajv@^6.5.5:
+  version "6.12.6"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
+  integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -1781,12 +1781,12 @@ object.pick@^1.2.0, object.pick@^1.3.0:
   dependencies:
     isobject "^3.0.1"
 
-objection@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.1.tgz#d0d4ae91bf97c89301d1390bf76c8bf4ab237e56"
-  integrity sha512-VY/OGLlLpHwIHck9/HC9meSpjE9w2b4ufxDu/igVCowyDajmcU3AwRmaqKQP8MhMCLPZKSj8gqIAQ5m5zpV5YA==
+objection@2.2.16:
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/objection/-/objection-2.2.16.tgz#552ec6d625a7f80d6e204fc63732cbd3fc56f31c"
+  integrity sha512-sq8erZdxW5ruPUK6tVvwDxyO16U49XAn/BmOm2zaNhNA2phOPCe2/7+R70nDEF1SFrgJOrwDu/PtoxybuJxnjQ==
   dependencies:
-    ajv "^6.12.0"
+    ajv "^6.12.6"
     db-errors "^0.2.3"
 
 once@^1.3.0:
