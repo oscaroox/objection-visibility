@@ -1,15 +1,15 @@
 "use strict";
 // tslint:disable:max-classes-per-file
 import { expect } from "chai";
-import Knex from "knex";
+import { knex, Knex } from "knex";
 import { compose, mixin, Model } from "objection";
 import visibilityPlugin from "../src";
 
 describe("objection-timestamp test", () => {
-  let knex: Knex;
+  let db: Knex;
 
   before(() => {
-    knex = Knex({
+    db = knex({
       client: "sqlite3",
       useNullAsDefault: true,
       connection: {
@@ -20,21 +20,21 @@ describe("objection-timestamp test", () => {
 
   before(() => {
     return Promise.all([
-      knex.schema.createTable("user", (table) => {
+      db.schema.createTable("user", (table) => {
         table.increments("id").primary();
         table.string("username");
         table.string("firstName");
         table.string("lastName");
         table.string("hashedPassword");
       }),
-      knex.schema.createTable("post", (table) => {
+      db.schema.createTable("post", (table) => {
         table.increments("id").primary();
         table.string("title");
         table.string("slug");
         table.string("description");
       }),
     ]).then(() => {
-      return knex.table("user").insert({
+      return db.table("user").insert({
         username: "johndoe",
         firstName: "John",
         lastName: "Doe",
@@ -45,21 +45,15 @@ describe("objection-timestamp test", () => {
 
   after(() => {
     return Promise.all([
-      knex.schema.dropTable("user"),
-      knex.schema.dropTable("post"),
+      db.schema.dropTable("user"),
+      db.schema.dropTable("post"),
     ]);
   });
 
   after(() => {
-    return knex.destroy();
+    return db.destroy();
   });
 
-  // beforeEach(() => {
-  //   return Promise.all([
-  //     knex("user").delete(),
-  //     knex("post").delete(),
-  //   ]);
-  // });
 
   it("should not show blacklisted properties when serialized to json", () => {
     class User extends visibilityPlugin(Model) {
@@ -75,7 +69,7 @@ describe("objection-timestamp test", () => {
     }
 
     return User
-      .query(knex)
+      .query(db)
       .insert({firstName: "John", lastName: "Doe", hashedPassword: "my secret"})
       .then((john) => {
         expect(john).to.have.property("hashedPassword");
@@ -97,7 +91,7 @@ describe("objection-timestamp test", () => {
     }
 
     return User
-      .query(knex)
+      .query(db)
       .insert({firstName: "jane", lastName: "Doe", hashedPassword: "my secret2"})
       .then((jane) => {
         const serialized = jane.toJSON();
@@ -131,14 +125,14 @@ describe("objection-timestamp test", () => {
     }
 
     return User
-      .query(knex)
+      .query(db)
       .insert({firstName: "joe", lastName: "doe", hashedPassword: "another secret"})
       .then((joe) => {
         const serialized = joe.toJSON();
         expect(serialized).to.not.have.property("hashedPassword");
         expect(serialized).to.not.have.property("id");
       })
-      .then(() => Post.query(knex).insert({ title: "my first post" }))
+      .then(() => Post.query(db).insert({ title: "my first post" }))
       .then((post) => {
         const serialized = post.toJSON();
         expect(serialized).to.have.property("id");
@@ -158,7 +152,7 @@ describe("objection-timestamp test", () => {
     }
 
     return User
-      .query(knex)
+      .query(db)
       .where("username", "johndoe")
       .first()
       .then((john) => {
@@ -178,7 +172,7 @@ describe("objection-timestamp test", () => {
     }
 
     return User
-      .query(knex)
+      .query(db)
       .where("username", "johndoe")
       .first()
       .then((john) => {
