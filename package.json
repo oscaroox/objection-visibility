@@ -47,7 +47,7 @@
     "mocha": "8.0.1",
     "objection": "2.2.16",
     "rimraf": "3.0.2",
-    "sqlite3": "5.0.0",
+    "sqlite3": "5.0.8",
     "ts-node": "8.10.2",
     "tslint": "6.1.2",
     "typescript": "3.9.7"
