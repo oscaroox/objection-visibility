@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/oscaroox/objection-visibility.svg?style=svg)](https://circleci.com/gh/oscaroox/objection-visibility)
+![workflow](https://github.com/oscaroox/objection-visibility/actions/workflows/node.js.yml/badge.svg)
 
 # objection-visibility
 
