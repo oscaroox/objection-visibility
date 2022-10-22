@@ -43,7 +43,7 @@
     "@types/mocha": "9.1.1",
     "@types/node": "18.11.0",
     "chai": "^4.1.1",
-    "knex": "2.1.0",
+    "knex": "2.3.0",
     "mocha": "10.0.0",
     "objection": "3.0.1",
     "rimraf": "3.0.2",
