@@ -888,10 +888,10 @@ json-schema-traverse@^1.0.0:
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
   integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
-knex@*, knex@2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-2.3.0.tgz#87fa2a9553d7cafb125d7a0645256fbe29ef5967"
-  integrity sha512-WMizPaq9wRMkfnwKXKXgBZeZFOSHGdtoSz5SaLAVNs3WRDfawt9O89T4XyH52PETxjV8/kRk0Yf+8WBEP/zbYw==
+knex@*, knex@2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-2.4.2.tgz#a34a289d38406dc19a0447a78eeaf2d16ebedd61"
+  integrity sha512-tMI1M7a+xwHhPxjbl/H9K1kHX+VncEYcvCx5K00M16bWvpYPKAZd6QrCu68PtHAdIZNQPWZn0GVhqVBEthGWCg==
   dependencies:
     colorette "2.0.19"
     commander "^9.1.0"
