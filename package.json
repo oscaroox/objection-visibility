@@ -41,7 +41,7 @@
     "@types/lodash.omit": "^4.5.3",
     "@types/lodash.pick": "^4.4.3",
     "@types/mocha": "9.1.1",
-    "@types/node": "18.11.0",
+    "@types/node": "18.14.2",
     "chai": "^4.1.1",
     "knex": "2.3.0",
     "mocha": "10.0.0",
